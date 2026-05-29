@@ -1,703 +1,753 @@
 <!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
-<html dir="rtl" lang="fa">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=0.5" name="viewport"/>
-<title>سایت شخصی مدرسه | STR</title>
-<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.0.3/Vazirmatn.css" rel="stylesheet" type="text/css"/>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>فروشگاه میر جلیل هاشمی</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-        /* تنظیمات عمومی */
-        :root{
-            --bg:#0f1220;              /* پس‌زمینه تیره گرادیانی */
-            --bg2:#151a2f;
-            --ink:#e8e8ef;
-            --ink-soft:#c8c8d8;
-            --brand:#e94560;
-            --brand-2:#7a5cff;
-            --surface:#171c34cc;       /* شیشه‌ای */
-            --surface-solid:#1c2342;
-            --header:#0d1024;
-            --nav:#0d1024;
-            --shadow:0 10px 28px rgba(0,0,0,.35);
-            --radius:16px;
-            --ring: 0 0 0 3px rgba(233,69,96,.25);
-            --success:#19c37d;
-            --warning:#f9a826;
-            --danger:#ff4d4f;
-        }
-        *{box-sizing:border-box}
-        html{scroll-behavior:smooth}
-        body{
-            font-family:'Vazirmatn','Tahoma',sans-serif;
-            margin:0;
-            background-image: radial-gradient(1200px 600px at 10% -10%, rgba(122,92,255,.22), transparent 60%),
-                              radial-gradient(900px 600px at 100% 0%, rgba(233,69,96,.18), transparent 50%),
-                              linear-gradient(180deg,var(--bg),var(--bg2));
-            color:var(--ink);
-        }
-        a{color:inherit}
 
-        /* افکت شیشه‌ای + حاشیه نورانی */
-        .glass{
-            background:var(--surface);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border:1px solid rgba(255,255,255,.08);
-            box-shadow: var(--shadow);
-            border-radius: var(--radius);
-        }
-
-        /* بنر اطلاعیه */
-        .notice{
-            background:linear-gradient(90deg,#0f3460, #3f2b96 35%, #e94560);
-            color:#fff;
-            text-align:center;
-            padding:12px;
-            font-weight:700;
-            box-shadow:0 2px 8px rgba(0,0,0,.2);
-            position: relative;
-            overflow: hidden;
-        }
-        .notice::after{
-            content:"";
-            position:absolute; inset:0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
-            transform: translateX(-100%);
-            animation: shine 4s linear infinite;
-        }
-        @keyframes shine{ to{ transform: translateX(100%);} }
-
-        /* هدر */
-        header{
-            background: conic-gradient(from 200deg at 70% -10%, rgba(233,69,96,.18), transparent 35%),
-                        conic-gradient(from 120deg at -10% 40%, rgba(122,92,255,.14), transparent 50%),
-                        var(--header);
-            color:#fff;
-            text-align:center;
-            padding:56px 20px 44px;
-            position: relative;
-            overflow: hidden;
-        }
-        header::before{
-            content:""; position:absolute; width:900px; height:900px; border-radius:50%;
-            background: radial-gradient(closest-side, rgba(122,92,255,.15), transparent);
-            top:-700px; left:-300px; filter: blur(20px);
-        }
-        header h1{font-size:2.6rem;margin:0}
-        header h2{font-size:1.35rem;margin:10px 0 0; opacity:.95}
-        header h3{font-size:1.05rem;margin:10px 0 0; opacity:.9}
-        header p{font-size:.9rem;margin:12px 0 0;opacity:.75}
-
-        /* ناوبری */
-        nav{
-            background-color:rgba(13,16,36,.8);
-            display:flex;
-            justify-content:center;
-            flex-wrap:wrap;
-            gap:6px;
-            position:sticky;
-            top:0;
-            z-index:20;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255,255,255,.06);
-        }
-        nav.scrolled{ box-shadow: 0 8px 20px rgba(0,0,0,.35); }
-        nav a{
-            color:#fff;
-            padding:14px 18px;
-            text-decoration:none;
-            transition:transform .2s ease, background-color .25s ease, box-shadow .25s ease;
-            font-weight:600;
-            border-radius:12px;
-            letter-spacing:.2px;
-        }
-        nav a:hover, nav a:focus{
-            background: linear-gradient(90deg, rgba(233,69,96,.24), rgba(122,92,255,.24));
-            transform:translateY(-2px);
-            outline:none;
-            box-shadow: var(--ring);
-        }
-
-        /* بخش‌ها */
-        section{
-            padding:42px 18px;
-            max-width:1100px;
-            margin:26px auto;
-            background-color:transparent;
-        }
-        .section-card{ padding:32px 22px; }
-        section h2{
-            font-size:1.8rem;
-            color:#fff;
-            border-bottom:2px solid var(--brand);
-            padding-bottom:10px;
-            margin:0 0 24px;
-            display:inline-block;
-        }
-
-        /* باکس‌های اطلاعاتی */
-        .info-box-container{
-            display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-            gap:20px;padding:10px 0;
-        }
-        .info-box{
-            background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-            border:1px solid rgba(255,255,255,.08);
-            border-radius:var(--radius);box-shadow:var(--shadow);
-            padding:22px;text-align:justify;transition:transform .25s ease, box-shadow .25s ease;
-            min-width:240px;
-        }
-        .info-box:hover{transform:translateY(-8px); box-shadow: 0 16px 36px rgba(233,69,96,.25)}
-        .info-box h3{color:#fff;margin:0 0 14px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:12px}
-        .info-box ul{list-style:none;padding:0;margin:0; display: grid; gap:10px}
-        .info-box li{
-            padding:10px 12px;
-            background: rgba(255,255,255,.03);
-            border:1px dashed rgba(255,255,255,.1);
-            border-radius:12px;
-            line-height:1.9;
-        }
-        .badge{
-            display:inline-block; padding:.1rem .5rem; border-radius:999px; font-size:.75rem; font-weight:800;
-            background: linear-gradient(90deg, rgba(233,69,96,.28), rgba(122,92,255,.28));
-            border:1px solid rgba(255,255,255,.12);
-            margin-inline-start:.5rem;
-        }
-
-        /* شمارش معکوس */
-        #countdown-container{
-            text-align:center;background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-            color:#fff;padding:22px;border-radius:var(--radius);margin-bottom:24px;
-            border:1px solid rgba(255,255,255,.08);
-        }
-        #countdown-container h3{margin:0 0 12px;font-size:1.3rem;color:#fff}
-        #countdown{display:flex;justify-content:center;gap:18px;font-weight:800;flex-wrap:wrap}
-        .time-unit{display:flex;flex-direction:column;align-items:center;min-width:90px; padding:10px 14px; border-radius:14px; background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08)}
-        .time-unit span:first-child{font-size:2rem;line-height:1}
-        .time-unit span:last-child{font-size:.8rem;margin-top:4px;opacity:.85}
-
-        /* ویدئو */
-        #video-ad{text-align:center;margin-top:28px;padding:18px;background: rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.35)}
-        #video-ad h2{color:#fff;margin-top:0}
-        #video-ad video{max-width:100%;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.45)}
-
-        /* جدول‌ها */
-        table{width:100%;border-collapse:collapse;margin-top:16px; overflow:hidden}
-        th,td{border:1px solid rgba(255,255,255,.08);padding:12px;text-align:center;vertical-align:middle}
-        th{background: linear-gradient(90deg, #0d1024, #19204a);color:#fff;position:sticky;top:0}
-        tr:nth-child(even){background:rgba(255,255,255,.03)}
-        tr:hover{background:rgba(233,69,96,.08)}
-        caption{caption-side:bottom;padding-top:6px;font-size:.9rem;color:var(--ink-soft)}
-
-        /* فرم عضویت */
-        fieldset{border:1px solid rgba(255,255,255,.12);padding:22px;border-radius:var(--radius);margin-top:10px; background: rgba(255,255,255,.03)}
-        legend{font-weight:800;color:#fff;padding:0 10px;font-size:1.2rem}
-        label{display:block;margin-top:14px;font-weight:600}
-        input[type="text"], input[type="email"], input[type="password"], select, textarea{
-            width:100%;padding:12px;margin-top:8px;border:1px solid rgba(255,255,255,.14);border-radius:10px;
-            background: #0f1224; color:#fff;
-        }
-        textarea{resize:vertical}
-        .form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-        button{
-            background: linear-gradient(90deg, #e94560, #7a5cff);
-            color:#fff;padding:12px 18px;border:none;cursor:pointer;border-radius:12px;font-size:1rem; font-weight:800;
-            transition: transform .15s ease, filter .25s ease, box-shadow .25s ease;
-            box-shadow: 0 8px 20px rgba(233,69,96,.35);
-        }
-        button[type="reset"]{background: linear-gradient(90deg, #4b5563, #374151); box-shadow:none}
-        button:hover{filter: brightness(1.1)}
-        button:active{transform:scale(.98)}
-        .btn-ghost{
-            background: transparent; border:1px solid rgba(255,255,255,.18); box-shadow:none;
-        }
-
-        /* فوتر */
-        footer{background-color:#0d1024;color:#fff;text-align:center;padding:26px 18px;margin-top:32px; border-top: 1px solid rgba(255,255,255,.08)}
-        footer img{border-radius:50%;border:3px solid #fff;margin-bottom:12px}
-        footer p{margin:5px 0;font-size:.9rem;line-height:1.8}
-
-        /* دسترسی/ترجیح کاربر */
-        @media (prefers-reduced-motion: reduce){
-            *{transition:none !important; animation:none !important}
-        }
-
-        /* واکنش‌گرا */
-        @media (max-width:768px){
-            header h1{font-size:2.2rem}
-            header h2{font-size:1.1rem}
-            header h3{font-size:.95rem}
-            nav a{padding:12px 14px;font-size:.95rem}
-            section{padding:28px 14px;margin:14px auto}
-            .time-unit span:first-child{font-size:1.7rem}
-            th,td{padding:10px}
-        }
-
-        /* -------- افزونه‌ها بدون حذف محتوای قبلی -------- */
-
-        /* کارت محتوای هر بخش بدون حذف متن */
-        .wrap-card{ padding: 0; }
-        .wrap-card > .section-card{ margin-top: 16px; }
-
-        /* خواناتر شدن خبرها */
-        .news-list{ display:grid; gap:12px; margin-top: 8px; }
-        .news-item{
-            display:flex; align-items:center; gap:10px;
-            padding:10px 12px; border:1px solid rgba(255,255,255,.1); border-radius:12px;
-            background: rgba(255,255,255,.03);
-        }
-        .news-dot{ width:10px; height:10px; border-radius:50%; background: var(--success); flex: 0 0 10px; }
-        .news-meta{ font-size:.78rem; opacity:.8; margin-inline-start:auto }
-
-        /* مودال ارتباط با ما */
-        .modal-backdrop{
-            position: fixed; inset: 0; background: rgba(0,0,0,.6);
-            display: none; align-items: center; justify-content: center; z-index: 60;
-        }
-        .modal-backdrop.active{ display: flex; }
-        .modal{
-            width: min(680px, 92vw);
-            background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-            border:1px solid rgba(255,255,255,.12);
-            border-radius: 18px; padding: 22px;
-            box-shadow: 0 30px 60px rgba(0,0,0,.45);
-        }
-        .modal header{ background: transparent; padding: 0 0 12px; text-align: start;}
-        .modal header h3{ margin: 0; font-size: 1.2rem }
-        .modal .close{ margin-inline-start: auto }
-        .modal footer{ background: transparent; padding: 0; margin-top: 14px; text-align: start }
-
-        /* پیشرفته‌تر کردن «تحریم» بدون حذف آیتم قبلی */
-        .sanction-widget{
-            margin-top: 12px; padding: 14px; border:1px solid rgba(255,255,255,.12);
-            border-radius: 14px; display: grid; gap: 10px;
-            background: rgba(255,255,255,.03);
-        }
-        .progress{
-            width:100%; height: 12px; border-radius: 999px; background: rgba(255,255,255,.08);
-            overflow: hidden; position: relative;
-        }
-        .progress > i{
-            content:""; display:block; height: 100%; width: 0%;
-            background: linear-gradient(90deg, #ff4d4f, #e94560, #7a5cff);
-            box-shadow: 0 8px 20px rgba(233,69,96,.35) inset;
-            transition: width 1s ease-in-out;
-        }
-        .delta{ font-weight:800 }
-        .delta.up{ color: var(--success) }
-        .delta.down{ color: var(--danger) }
-
-        /* سوییچ حالت روشن */
-        .theme-toggle{ position:fixed; left:14px; bottom:14px; z-index:70 }
-        .theme-toggle input{ display:none }
-        .theme-toggle label{
-            display:flex; align-items:center; gap:8px; cursor:pointer;
-            border:1px solid rgba(255,255,255,.18);
-            background: rgba(255,255,255,.06);
-            padding:8px 12px; border-radius:999px; font-weight:800;
-        }
-        body.light{
-            --bg:#f0f2f5; --bg2:#f9fafb; --ink:#333; --ink-soft:#555;
-            --surface:#ffffffcc; --surface-solid:#fff; --header:#1a1a2e; --nav:#16213e;
-        }
-        body.light header, body.light footer{ color: #fff }
-        body.light .info-box, body.light #video-ad, body.light fieldset,
-        body.light .sanction-widget, body.light .time-unit{ background:#ffffffcc; color:#333 }
-        body.light input, body.light textarea, body.light select{ background:#fff; color:#111; border-color:#ddd }
-        body.light th{ color:#fff }
-    
-/* 🎉 تزئینات ویژه افتتاح سایت 🎉 */
-@keyframes confettiFall {
-  0% { transform: translateY(-10vh) rotate(0deg); opacity:1; }
-  100% { transform: translateY(110vh) rotate(720deg); opacity:0; }
-}
-.confetti {
-  position: fixed;
-  top: -10px;
-  width: 10px;
-  height: 10px;
-  background: hsl(var(--hue), 80%, 60%);
-  border-radius: 50%;
-  animation: confettiFall 4s linear forwards;
-  z-index: 9999;
-  pointer-events: none;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Vazirmatn',sans-serif;
 }
 
-/* درخشش تیتر */
-@keyframes glowText {
-  0%,100% { text-shadow: 0 0 10px #e94560, 0 0 20px #7a5cff; }
-  50% { text-shadow: 0 0 20px #7a5cff, 0 0 40px #e94560; }
-}
-header h1 {
-  animation: glowText 2s ease-in-out infinite alternate;
+body{
+background:#f4f5f7;
+color:#333;
+overflow-x:hidden;
 }
 
-/* دکمه‌ها با لرزش نرم */
-button, .btn-ghost {
-  transition: transform .2s ease, box-shadow .3s ease;
+/* HEADER */
+
+header{
+background:#fff;
+padding:18px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:999;
+border-bottom:1px solid #ececec;
+box-shadow:0 3px 15px rgba(0,0,0,0.05);
 }
-button:hover, .btn-ghost:hover {
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow: 0 0 20px rgba(233,69,96,.5);
+
+.logo{
+font-size:30px;
+font-weight:900;
+color:#222;
+}
+
+nav ul{
+display:flex;
+gap:28px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:#444;
+font-size:16px;
+font-weight:700;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#0f9d58;
+}
+
+/* HERO */
+
+.hero{
+width:92%;
+height:420px;
+margin:25px auto;
+border-radius:35px;
+overflow:hidden;
+position:relative;
+background:#000;
+box-shadow:0 15px 40px rgba(0,0,0,0.10);
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+opacity:0;
+transition:1.5s ease;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#000;
+}
+
+.slide.active{
+opacity:1;
+z-index:1;
+}
+
+.slide img{
+width:100%;
+height:100%;
+object-fit:contain;
+background:#000;
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+position:absolute;
+bottom:25px;
+right:25px;
+left:25px;
+z-index:10;
+padding:20px;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(5px);
+border-radius:20px;
+color:white;
+max-width:650px;
+}
+
+.hero-content h1{
+font-size:48px;
+font-weight:900;
+margin-bottom:14px;
+}
+
+.hero-content p{
+font-size:18px;
+line-height:2;
+}
+
+.hero-btn{
+margin-top:20px;
+padding:14px 30px;
+border:none;
+border-radius:12px;
+background:#0f9d58;
+color:white;
+font-size:16px;
+font-weight:800;
+cursor:pointer;
+transition:0.3s;
+}
+
+.hero-btn:hover{
+background:#0c7d46;
+transform:translateY(-3px);
+}
+
+/* SECTION */
+
+.section{
+width:90%;
+margin:70px auto;
+}
+
+.section-title{
+font-size:34px;
+font-weight:900;
+margin-bottom:30px;
+}
+
+/* AMAZING */
+
+.amazing{
+background:linear-gradient(135deg,#d32f2f,#8e0000);
+padding:35px;
+border-radius:28px;
+box-shadow:0 10px 30px rgba(211,47,47,0.2);
+}
+
+.scroll-products{
+display:flex;
+gap:22px;
+overflow-x:auto;
+padding-bottom:10px;
+scroll-behavior:smooth;
+scrollbar-width:none;
+}
+
+.scroll-products::-webkit-scrollbar{
+display:none;
+}
+
+/* CARD */
+
+.card{
+min-width:250px;
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+transition:0.3s;
+border:1px solid #ececec;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+display:block;
+}
+
+.card-content{
+padding:18px;
+}
+
+.card h3{
+font-size:21px;
+margin-bottom:12px;
+}
+
+.price{
+font-size:24px;
+font-weight:900;
+color:#d32f2f;
+margin-bottom:15px;
+}
+
+.buy-btn{
+width:100%;
+padding:13px;
+border:none;
+border-radius:12px;
+background:#111;
+color:white;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+}
+
+.buy-btn:hover{
+background:#0f9d58;
+}
+
+/* FEATURES */
+
+.features{
+width:90%;
+margin:80px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.feature{
+background:white;
+padding:35px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 8px 18px rgba(0,0,0,0.05);
+transition:0.3s;
+}
+
+.feature:hover{
+transform:translateY(-5px);
+}
+
+.feature span{
+font-size:48px;
+display:block;
+margin-bottom:15px;
+}
+
+.feature h3{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.feature p{
+color:#666;
+line-height:2;
+}
+
+/* COMMENTS */
+
+.comments{
+width:90%;
+margin:80px auto;
+}
+
+.comments-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.comment-box{
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+border:1px solid #ececec;
+}
+
+.comment-box h4{
+font-size:22px;
+margin-bottom:12px;
+color:#0f9d58;
+}
+
+.comment-box p{
+line-height:2;
+color:#666;
+}
+
+.stars{
+color:#ffb400;
+font-size:20px;
+margin-bottom:15px;
+}
+
+/* INFO */
+
+.info-box{
+width:90%;
+margin:80px auto;
+background:white;
+padding:45px;
+border-radius:30px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+text-align:center;
+}
+
+.info-box h2{
+font-size:42px;
+margin-bottom:18px;
+}
+
+.info-box p{
+font-size:18px;
+line-height:2.2;
+color:#666;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:90px;
+background:#111;
+color:white;
+padding-top:60px;
+}
+
+.footer-container{
+width:90%;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:40px;
+padding-bottom:45px;
+}
+
+.footer-box h3{
+font-size:28px;
+margin-bottom:18px;
+}
+
+.footer-box p{
+line-height:2.2;
+color:#ccc;
+}
+
+.footer-bottom{
+padding:22px;
+text-align:center;
+border-top:1px solid #333;
+color:#aaa;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+nav ul{
+gap:12px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.logo{
+font-size:24px;
+}
+
+.hero{
+height:300px;
+width:95%;
+}
+
+.hero-content{
+right:12px;
+left:12px;
+bottom:12px;
+padding:14px;
+}
+
+.hero-content h1{
+font-size:28px;
+}
+
+.hero-content p{
+font-size:13px;
+line-height:1.9;
+}
+
+.hero-btn{
+width:100%;
+padding:12px;
+font-size:14px;
+}
+
+.section-title{
+font-size:26px;
+}
+
+.card{
+min-width:220px;
+}
+
+.card img{
+height:170px;
+}
+
+.info-box{
+padding:25px;
+}
+
+.info-box h2{
+font-size:30px;
+}
+
+.info-box p{
+font-size:15px;
+}
+
 }
 
 </style>
+
 </head>
+
 <body>
-<div class="theme-toggle">
-<input aria-label="تغییر تم" id="toggleTheme" type="checkbox"/>
-<label for="toggleTheme">🌙/☀️ تم</label>
-</div>
 
-<div class="notice" role="status">softSTR.ir</div>
+<!-- HEADER -->
+
 <header>
-<h1>زنده باد نهم 4</h1>
-<h2>خبرگزاری مدرسه مفتح ۲</h2>
-<h3>اطلاع‌رسانی توسط کلاس نهم ۴</h3>
-<p>© STR91 | هرگونه کپی‌برداری پیگرد قانونی دارد</p>
-</header>
-<nav aria-label="ناوبری اصلی">
-<a href="#about">معرفی</a>
-<a href="#info">اطلاعیه‌ها</a>
-<a href="#table">جدول نمرات</a>
-<a href="#mental-health">سلامت روان</a>
-<a href="#homework-table">جدول تکالیفات</a>
-<a href="#contact">ارتباط با ما</a>
-<a class="btn-ghost" href="#contact" id="openContactModal" style="margin-inline-start:8px">فرم سریع</a>
+
+<div class="logo">
+فروشگاه میر جلیل هاشمی
+</div>
+
+<nav>
+<ul>
+<li><a href="#">خانه</a></li>
+<li><a href="#">محصولات</a></li>
+<li><a href="#">شگفت انگیزها</a></li>
+<li><a href="#">تماس با ما</a></li>
+</ul>
 </nav>
-<section class="wrap-card" id="about">
-<div class="section-card glass">
-<h2> شعار</h2>
-<p># منتظر باش </p>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="slide active">
+<img src="014.png">
 </div>
 
+<div class="slide">
+<img src="015.png">
+</div>
 
-<div class="info-box-container">
-<div aria-labelledby="box-1" class="info-box">
-<h3 id="box-1">تحریم در مدرسه <span class="badge">به‌روزرسانی زنده</span></h3>
-<ul>
-<li style="color:#ff8800">... 78.2% .... (+35.9%) ...</li>
-</ul>
-<div class="sanction-widget" data-delta="-5.1" data-percent="68.9">
-<div>درصد فعلی: <b id="sanctionPercent">35.1%</b> — تغییر: <b class="delta down" id="sanctionDelta">-35.1%</b></div>
-<div aria-label="نمودار پیشرفت تحریم" class="progress"><i id="sanctionBar" style="width:0%"></i></div>
-<small style="opacity:.4">منبع: داده‌های داخلی STR (دمو)</small>
+<div class="slide">
+<img src="013.png">
 </div>
-</div>
-<div aria-labelledby="box-2" class="info-box">
-<h3 id="box-2">خبرهای سطر اول</h3>
-<ul aria-live="polite" class="news-list">
-<li class="news-item">
-<i aria-hidden="true" class="news-dot"></i>
-<span>  ....  </span>
-<span class="news-meta"> به زودی </span>
-</li>
-<li class="news-item">
-<i aria-hidden="true" class="news-dot" style="background:var(--warning)"></i>
-<span>....  </span>
-<span class="news-meta">به زودی </span>
-</li>
-</ul>
-</div>
-<div aria-labelledby="box-3" class="info-box">
-<h3 id="box-3">خبرهای سطر دوم</h3>
-<ul class="news-list">
-<li class="news-item">
-<i aria-hidden="true" class="news-dot" style="background:var(--brand)"></i>
-<span
-<span> <class="news-meta">به‌زودی</span>
-</li>
-<li class="news-item">
-<i aria-hidden="true" class="news-dot" style="background:#aaa"></i>
-<span>.......</span>
-<span class="news-meta">—</span>
-</li>
-</ul>
-</div>
-<div aria-labelledby="box-4" class="info-box">
-<h3 id="box-4">مبصرهای کلاس <span class="badge">سال ۱۴۰۴</span></h3>
-<ul>
-<li>عرفان مهدوی</li>
-<li>فرهام مهدی‌زاده</li>
-</ul>
-</div>
-<div aria-labelledby="box-dollar" class="info-box">
-<h3 id="box-dollar">قیمت دلار <span class="badge">به‌روزرسانی تقریبی </span></h3>
-<ul>
-<li style="color:#ff0000">... 150/250 تومان .... (+6.2%) ...</li>
-</ul>
-<div class="sanction-widget" data-delta="0.8" data-percent="58.2">
-<div>قیمت فعلی: <b id="dollarValue">150/850 تومان</b> — تغییر: <b class="delta up" id="dollarDelta">-5.2%</b></div>
-<div class="progress"><i id="dollarBar" style="width:0%"></i></div>
-<small style="opacity:.8">منبع: داده‌های داخلی STR (دمو)</small>
-</div>
-</div>
-<div aria-labelledby="box-iran" class="info-box">
-<h3 id="box-iran">ارزش ایران <span class="badge">به‌روزرسانی زنده</span></h3>
-<ul>
-<li style="color:#fa2626">... 0.0000012 .... (-80.3%) ...</li>
-</ul>
-<div class="sanction-widget" data-delta="1.4" data-percent="72.5">
-<div>شاخص فعلی: <b id="iranValue">61.5</b> — تغییر: <b class="delta up" id="iranDelta">-6.4%</b></div>
-<div class="progress"><i id="iranBar" style="width:0%"></i></div>
-<small style="opacity:.8">منبع: داده‌های داخلی STR (دمو)</small>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="wrap-card" id="table">
-<div class="section-card glass">
-<h2>جدول میانگین نمرات کلاس نهم4</h2>
-<table aria-describedby="grades-cap">
-<thead>
-<tr>
-<th scope="col">نام درس</th>
-<th scope="col">ضریب درس</th>
 
-</tr>
-</thead>
-<tbody>
-<tr><td>علوم</td><td>40.3%</td>
-<tr><td>فارسی</td><td>90.98%</td>
-<tr><td>ریاضی</td><td>20.1%</td>
-<tr><td>قرآن</td><td>50.2%</td>
-<tr><td>کاروفناوری</td><td>20.8%</td>
-<tr><td>فرهنگ و هنر</td><td>90.8%</td>
-<tr><td>آمادگی دفاعی</td><td>70.8%</td>
-<tr><td>زبان عربی</td><td>50.9%</td>
-<tr><td>زبان انگلیسی</td><td>30.5%</td>
-</tbody>
-<caption id="grades-cap">می‌توانید بعداً مقادیر را به‌روزرسانی کنید.</caption>
-</table>
+<div class="hero-content">
+
+<h1>
+فروشگاه میر جلیل هاشمی
+</h1>
+
+<p>
+بهترین برنج، حبوبات، تنقلات، شامپو و کالاهای سوپرمارکتی با قیمت مناسب
+</p>
+
+<button class="hero-btn">
+مشاهده محصولات
+</button>
+
 </div>
-</section>
-<section class="wrap-card" id="table">
-<div class="section-card glass">
-<h2>جدول تحریم بودن در کلاس از هر کدام معلم ها کلاس نهم4</h2>
-<table aria-describedby="grades-cap">
-<thead>
-<tr>
-<th scope="col">نام درس</th>
-<th scope="col">نام معلم</th>
-<th scope="col">با حال  بودن </th>
-</tr>
-</thead>
-<tbody>
-<tr><td>علوم</td><td>اقای صمد </td><td>67%</td></tr>
-<tr><td>فارسی</td><td>اقای سید اسحق فخری</td><td>10.3%</td></tr>
-<tr><td>ریاضی</td><td>اقای حسن زاده </td><td>40.5%</td></tr>
-<tr><td>قرآن</td><td>اقای اسبقی</td><td>80.6%</td></tr>
-<tr><td>کاروفناوری</td><td>....</td><td>36.9%</td></tr>
-<tr><td>فرهنگ و هنر</td><td>اقای دانیالی </td><td>100%</td></tr>
-<tr><td>آمادگی دفاعی</td><td>....</td><td>8.3%</td></tr>
-<tr><td>ورزش</td><td>....</td><td>30.9%</td></tr>
-<tr><td>زبان عربی</td><td>....</td><td>50.1%</td></tr>
-<tr><td>زبان انگلیسی</td><td>کریمی </td><td>40.6%</td></tr>
-<tr><td>مطالعات اجتماعی </td><td>....</td><td>60.2%</td></tr>
-<tr><td> نگارش </td><td>اقای فخری </td><td>10.3%</td></tr>
-</tbody>
-<caption id="grades-cap">می‌توانید بعداً مقادیر را به‌روزرسانی کنید.</caption>
-</table>
-</div>
+
 </section>
 
-<section class="wrap-card" id="mental-health">
-<div class="section-card glass">
-<h2>وضعیت اعصاب و روان بعد از مدرسه</h2>
-<table aria-describedby="mh-cap">
-<thead>
-<tr>
-<th scope="col">روز هفته</th>
-<th scope="col">وضعیت</th>
-<th scope="col">توضیحات</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>شنبه</td><td> به زودی  </td><td>به زودی</td></tr>
-<tr><td>یکشنبه</td><td> به زودی </td><td>به زودی </td></tr>
-<tr><td>دوشنبه</td><td>به زودی </td><td>به زودی</td></tr>
-<tr><td>سه‌شنبه</td><td>به زودی </td><td>به زودی</td></tr>
-<tr><td>چهارشنبه</td><td>به زودی </td><td>به زودیل</td></tr>
-<tr><td>چهارشنبه</td><td>به زودی  </td><td>به زودی</td></tr>
-<tr><td>پنجشنبه</td><td>به زودی </td><td>به زودی</td></tr>
-<tr><td>جمعه</td><td>به زودی </td><td>به زودی </td></tr>
-</tbody>
-<caption id="mh-cap">گزارش هفتگی حال‌وهوای بعد از مدرسه.</caption>
-</table>
+<!-- AMAZING -->
 
+<section class="section amazing">
 
+<h2 class="section-title" style="color:white">
+🔥 شگفت انگیز ها
+</h2>
 
-<section class="wrap-card" id="contact">
-<div class="section-card glass">
-<h2>ارتباط با ما</h2>
+<div class="scroll-products">
 
-<ul class="news-list" style="margin-top:8px">
-  <li class="news-item">
-    <i class="news-dot" style="background:var(--brand)"></i>
-    <span>📞 شماره تماس: <strong>09935796301</strong></span>
-    <span class="news-meta">پشتیبانی</span>
-  </li>
-  <li class="news-item">
-    <i class="news-dot" style="background:var(--success)"></i>
-    <span>تلگرام: <a href="https://t.me/+CwH7EjItBdpiMmZk" rel="noopener noreferrer" target="_blank">گروه ما</a></span>
-    <span class="news-meta">مدیر:  متین هاشمی </span>
-  </li>
-  <li class="news-item">
-    <i class="news-dot" style="background:var(--warning)"></i>
-    <span>روبیکا: <a href="https://rubika.ir/joing/IJAJCIDE0LTDKEMQASFQOVRHTCZHQQZY" rel="noopener noreferrer" target="_blank">گروه ما</a></span>
-    <span class="news-meta">مدیر: متین هاشمی</span>
-  </li>
-  <li class="news-item">
-    <i class="news-dot" style="background:#aaa"></i>
-    <span>ایمیل: <a href="matinhashemi268@gmail.com">matinhashemi268@gmail.com</a></span>
-    <span class="news-meta">گزارش اعتراضات </span>
-  </li>
-  <li class="news-item">
-    <i class="news-dot" style="background:var(--brand-2)"></i>
-    <span>آدرس: مدرسه مفتح ۲ — محله ابروان</span>
-    <span class="news-meta">اداری</span>
-  </li>
-</ul>
+<div class="card">
+<img src="SHEGEFT ANGIZ/hashemi.jpg">
+<div class="card-content">
+<h3>برنج هاشمی ممتاز</h3>
+<div class="price">۵۰۰ هزار تومان</div>
+<button class="buy-btn">
+خرید حضوری
+</button>
+</div>
+</div>
 
+<div class="card">
+<img src="SHEGEFT ANGIZ/HED.jpg">
+<div class="card-content">
+<h3>شامپو هد اند شولدر</h3>
+<div class="price">550 هزار تومان</div>
+<button class="buy-btn">
+خرید حضوری
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="SHEGEFT ANGIZ/PCH PCH.jpg">
+<div class="card-content">
+<h3>پچ پچ شکلاتی</h3>
+<div class="price">25 هزار تومان</div>
+<button class="buy-btn">
+خرید حضوری
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="SHEGEFT ANGIZ/POLAK.jpg">
+<div class="card-content">
+<h3>تن ماهی پولک</h3>
+<div class="price">169 هزار تومان</div>
+<button class="buy-btn">
+خرید حضوری
+</button>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<div class="feature">
+<span>🌾</span>
+<h3>برنج با کیفیت</h3>
+<p>
+ارائه بهترین برنج هاشمی، عنبربو و نیم دانه
+</p>
+</div>
+
+<div class="feature">
+<span>🛒</span>
+<h3>تنوع محصولات</h3>
+<p>
+انواع کالاهای سوپرمارکتی و تنقلات تازه
+</p>
+</div>
+
+<div class="feature">
+<span>🔥</span>
+<h3>قیمت مناسب</h3>
+<p>
+بهترین قیمت برای خرید حضوری مشتریان عزیز
+</p>
+</div>
+
+<div class="feature">
+<span>⭐</span>
+<h3>رضایت مشتری</h3>
+<p>
+کیفیت بالا و رضایت خریداران فروشگاه
+</p>
+</div>
+
+</section>
+
+<!-- COMMENTS -->
+
+<section class="comments">
+
+<h2 class="section-title">
+💬 نظرات مشتریان
+</h2>
+
+<div class="comments-grid">
+
+<div class="comment-box">
+<div class="stars">
+★★★★★
+</div>
+<h4>
+علی محمدی
+</h4>
+<p>
+برنج هاشمی خیلی با کیفیت بود و قیمتش هم عالی بود.
+</p>
+</div>
+
+<div class="comment-box">
+<div class="stars">
+★★★★★
+</div>
+<h4>
+رضا احمدی
+</h4>
+<p>
+محصولات فروشگاه تازه و با کیفیت هستن، کاملا راضی بودم.
+</p>
+</div>
+
+<div class="comment-box">
+<div class="stars">
+★★★★★
+</div>
+<h4>
+مهدی رضایی
+</h4>
+<p>
+شامپو و تنقلات قیمت مناسبی داشتن و برخورد عالی بود.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- INFO -->
+
+<section class="info-box">
+
+<h2>
+کیفیت عالی محصولات
+</h2>
+
+<p>
+فروشگاه میر جلیل هاشمی ارائه دهنده بهترین برنج، حبوبات، تنقلات و کالاهای سوپرمارکتی با قیمت مناسب و کیفیت بالا
+</p>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
-<img alt="لوگوی سایت" loading="lazy" src="images/logo.jpg" width="100"/>
-<p>© matin 2025 | طراحی شده با ❤️ توسط softSTR</p>
-<p>طبق ماده ۱۲ فصل سوم قانون جرائم رایانه‌ای، هرگونه کپی‌برداری از طرح قالب و مطالب سایت پیگرد قانونی دارد</p>
-</footer>
-<div aria-hidden="true" aria-modal="true" class="modal-backdrop" id="contactBackdrop" role="dialog">
-<div aria-labelledby="contactModalTitle" class="modal" role="document">
-<header style="display:flex; align-items:center; gap:10px">
-<h3 id="contactModalTitle">فرم سریع ارتباط با ما</h3>
-<button aria-label="بستن" class="btn-ghost close" id="closeModal">✖</button>
-</header>
-<form id="quickContactForm">
-<label for="qc_name">نام و نام خانوادگی</label>
-<input id="qc_name" name="name" placeholder="مثلاً: متین هاشمی " required=""/>
-<label for="qc_email">ایمیل</label>
-<input id="qc_email" name="email" placeholder="example@mail.com" required="" type="email"/>
-<label for="qc_msg">پیام شما</label>
-<textarea id="qc_msg" name="message" placeholder="سلام! ..." required="" rows="4"></textarea>
-<footer class="form-actions">
-<button type="submit">ارسال پیام</button>
-<button class="btn-ghost" id="closeModal2" type="button">انصراف</button>
-</footer>
-</form>
+
+<div class="footer-container">
+
+<div class="footer-box">
+
+<h3>
+فروشگاه میر جلیل هاشمی
+</h3>
+
+<p>
+عرضه کننده انواع کالاهای سوپرمارکتی، برنج، حبوبات و محصولات روزمره
+</p>
+
 </div>
+
+<div class="footer-box">
+
+<h3>
+ارتباط با ما
+</h3>
+
+<p>
+📞 09144549172
+</p>
+
+<p>
+📍 فروشگاه میر جلیل هاشمی
+</p>
+
 </div>
-<script>
-        /* ======= شمارش معکوس تا 1 مهر 1404 (معادل 2025-09-23) ======= */
-        const schoolStarts = new Date("2025-09-23T00:00:00+03:30").getTime(); // زمان تهران
 
-        const countdownEl = document.getElementById("countdown");
-        const elDays = document.getElementById("days");
-        const elHours = document.getElementById("hours");
-        const elMinutes = document.getElementById("minutes");
-        const elSeconds = document.getElementById("seconds");
+</div>
 
-        const tick = () => {
-            const now = Date.now();
-            const distance = schoolStarts - now;
+<div class="footer-bottom">
 
-            if (distance <= 0) {
-                countdownEl.textContent = "🎉 مدرسه شروع شد! به سایت خوش آمدید 🎉";
-                clearInterval(timer);
-                return;
-            }
+© تمامی حقوق متعلق به فروشگاه میر جلیل هاشمی می‌باشد
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+</div>
 
-            elDays.textContent = String(days).padStart(2, "0");
-            elHours.textContent = String(hours).padStart(2, "0");
-            elMinutes.textContent = String(minutes).padStart(2, "0");
-            elSeconds.textContent = String(seconds).padStart(2, "0");
-        };
-
-        tick();
-        const timer = setInterval(tick, 1000);
-
-        /* ======= سایه ناوبری هنگام اسکرول ======= */
-        const nav = document.querySelector('nav');
-        const onScroll = () => {
-            if (window.scrollY > 24) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
-        };
-        onScroll(); window.addEventListener('scroll', onScroll);
-
-        /* ======= مودال ارتباط با ما ======= */
-        const modalBackdrop = document.getElementById('contactBackdrop');
-        const openers = [document.getElementById('contactModalBtn'), document.getElementById('openContactModal')].filter(Boolean);
-        const closeModalBtns = [document.getElementById('closeModal'), document.getElementById('closeModal2')].filter(Boolean);
-
-        openers.forEach(btn => btn.addEventListener('click', () => {
-            modalBackdrop.classList.add('active');
-            modalBackdrop.setAttribute('aria-hidden','false');
-            document.getElementById('qc_name').focus();
-        }));
-        closeModalBtns.forEach(btn => btn.addEventListener('click', () => {
-            modalBackdrop.classList.remove('active');
-            modalBackdrop.setAttribute('aria-hidden','true');
-        }));
-        modalBackdrop.addEventListener('click', (e)=>{
-            if(e.target === modalBackdrop){ 
-                modalBackdrop.classList.remove('active');
-                modalBackdrop.setAttribute('aria-hidden','true');
-            }
-        });
-        document.addEventListener('keydown', (e)=>{
-            if(e.key === 'Escape'){
-                modalBackdrop.classList.remove('active');
-                modalBackdrop.setAttribute('aria-hidden','true');
-            }
-        });
-
-        document.getElementById('quickContactForm').addEventListener('submit', (e)=>{
-            e.preventDefault();
-            alert('پیام شما با موفقیت ارسال شد (دمو).');
-            modalBackdrop.classList.remove('active');
-            modalBackdrop.setAttribute('aria-hidden','true');
-        });
-
-        /* ======= ویجت تحریم: مقداردهی نوار پیشرفت ======= */
-        const widget = document.querySelector('.sanction-widget');
-        if(widget){
-            const percent = parseFloat(widget.dataset.percent || '0');
-            const delta = parseFloat(widget.dataset.delta || '0');
-            document.getElementById('sanctionBar').style.width = Math.max(0, Math.min(100, percent)) + '%';
-            const deltaEl = document.getElementById('sanctionDelta');
-            deltaEl.textContent = (delta > 0 ? '+' : '') + delta.toFixed(1) + '%';
-            deltaEl.classList.toggle('up', delta > 0);
-            deltaEl.classList.toggle('down', delta < 0);
-            document.getElementById('sanctionPercent').textContent = percent.toFixed(1) + '%';
-        }
-
-        /* ======= سوییچ تم روشن/تاریک ======= */
-        const toggle = document.getElementById('toggleTheme');
-        if(localStorage.getItem('theme') === 'light'){ document.body.classList.add('light'); toggle.checked = true; }
-        toggle.addEventListener('change', ()=>{
-            document.body.classList.toggle('light', toggle.checked);
-            localStorage.setItem('theme', toggle.checked ? 'light' : 'dark');
-        });
-    </script>
+</footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', ()=>{
-  for(let i=0;i<80;i++){
-    const c = document.createElement('div');
-    c.className = 'confetti';
-    c.style.left = Math.random()*100 + 'vw';
-    c.style.setProperty('--hue', Math.floor(Math.random()*360));
-    c.style.animationDelay = (Math.random()*3)+'s';
-    c.style.animationDuration = (2+Math.random()*3)+'s';
-    document.body.appendChild(c);
-    setTimeout(()=>c.remove(), 6000);
-  }
+
+/* SLIDER */
+
+const slides = document.querySelectorAll('.slide');
+
+let current = 0;
+
+setInterval(()=>{
+
+slides[current].classList.remove('active');
+
+current = (current + 1) % slides.length;
+
+slides[current].classList.add('active');
+
+},5000);
+
+/* AUTO SCROLL */
+
+const scrollBox = document.querySelector('.scroll-products');
+
+let scrollAmount = 0;
+
+setInterval(()=>{
+
+scrollAmount += 270;
+
+if(scrollAmount > scrollBox.scrollWidth - scrollBox.clientWidth){
+
+scrollAmount = 0;
+
+}
+
+scrollBox.scrollTo({
+left:scrollAmount,
+behavior:'smooth'
 });
+
+},3500);
+
 </script>
 
 </body>
