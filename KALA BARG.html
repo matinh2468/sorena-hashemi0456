@@ -1,203 +1,143 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پنل پیشرفته کالا برگ - فروشگاه میر جلیل هاشمی</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #e74c3c; /* قرمز */
-            --secondary-color: #3498db; /* آبی */
-            --accent-color: #f39c12; /* نارنجی */
-            --background-color: #f8f9fa;
-            --card-background: #ffffff;
-            --text-color: #34495e;
-            --light-text-color: #7f8c8d;
-            --border-radius: 10px;
-            --box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
-        }
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            line-height: 1.7;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #c0392b 100%);
-            color: #fff;
-            padding: 60px 0;
-            text-align: center;
-            border-radius: var(--border-radius);
-            margin-bottom: 50px;
-            box-shadow: var(--box-shadow);
-        }
-        header h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-        }
-        header p {
-            font-size: 1.4em;
-            opacity: 0.9;
-            margin-top: 0;
-        }
-        .main-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        .card {
-            background-color: var(--card-background);
-            border-radius: var(--border-radius);
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 300px;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-        }
-        .card h3 {
-            color: var(--primary-color);
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .card p {
-            font-size: 1.1em;
-            color: var(--light-text-color);
-            flex-grow: 1;
-            margin-bottom: 30px;
-        }
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #2980b9 100%);
-            color: white;
-            padding: 18px 30px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.3em;
-            font-weight: bold;
-            letter-spacing: 1px;
-            transition: background 0.3s ease, transform 0.2s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
-        }
-        .btn:hover {
-            background: linear-gradient(135deg, #2980b9 0%, var(--secondary-color) 100%);
-            transform: translateY(-3px);
-        }
-        .inquiry-section {
-            background: linear-gradient(135deg, var(--accent-color) 0%, #e67e22 100%);
-            color: white;
-            padding: 50px 0;
-            text-align: center;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-        .inquiry-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 25px;
-        }
-        .inquiry-section p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-        }
-        .bale-link {
-            display: inline-block;
-            background-color: #039be5; /* رنگ آبی باله */
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .bale-link:hover {
-            background-color: #0277bd;
-        }
-        .username {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: rgba(255,255,255,0.2);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.4em;
-            display: inline-block;
-            margin-top: 15px;
-            border: 1px dashed rgba(255,255,255,0.5);
-        }
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            font-size: 0.9em;
-            color: var(--light-text-color);
-        }
-        footer a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.6">
+
+<title>استعلام کالابرگ | فروشگاه میر جلیل هاشمی</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Vazirmatn',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    linear-gradient(135deg,#ff512f,#dd2476);
+}
+
+.card{
+    width:90%;
+    max-width:500px;
+    background:#fff;
+    border-radius:25px;
+    padding:40px 30px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.logo{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff6a00,#ff0000);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:38px;
+    font-weight:900;
+    margin-bottom:20px;
+}
+
+.shop-name{
+    font-size:30px;
+    font-weight:900;
+    color:#222;
+}
+
+.subtitle{
+    color:#666;
+    margin-top:8px;
+    font-size:15px;
+}
+
+.line{
+    width:80px;
+    height:4px;
+    background:#ff4b2b;
+    margin:20px auto;
+    border-radius:20px;
+}
+
+.title{
+    font-size:24px;
+    font-weight:800;
+    color:#333;
+    margin-bottom:10px;
+}
+
+.desc{
+    color:#666;
+    line-height:2;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    background:linear-gradient(135deg,#ff6a00,#ff0000);
+    color:#fff;
+    padding:16px 35px;
+    border-radius:15px;
+    font-size:18px;
+    font-weight:700;
+    transition:.3s;
+    box-shadow:0 8px 20px rgba(255,80,0,.3);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.footer{
+    margin-top:25px;
+    color:#888;
+    font-size:13px;
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>فروشگاه میر جلیل هاشمی</h1>
-        <p>دنیای کالا برگ شما، با بهترین‌ها و سریع‌ترین‌ها</p>
-    </header>
+<div class="card">
 
-    <div class="container">
-        <div class="main-content">
-            <div class="card">
-                <h3>خرید آسان کالا برگ</h3>
-                <p>با پنل اختصاصی فروشگاه میر جلیل هاشمی، به راحتی سبد خرید خود را با کالا برگ تکمیل کنید و از تخفیفات ویژه بهره‌مند شوید.</p>
-               <a href="https://web.bale.ai/services?uid=1834682924"bale-link">رفتن به بخش استعلام کالا برگ در بله</a>
-            </div>
+    <div class="logo">م</div>
 
-            <div class="card">
-                <h3>مشاهده موجودی کالا</h3>
-                <p>از لحظه به لحظه موجودی کالاهای مورد علاقه خود با خبر شوید. ما بهترین‌ها را برای شما گلچین کرده‌ایم.</p>
-                <a href="https://web.bale.ai/services?uid=1834682924"bale-link">رفتن به بخش استعلام کالا برگ در بله</a>
-            </div>
+    <h1 class="shop-name">فروشگاه میر جلیل هاشمی</h1>
 
-            
+    <p class="subtitle">
+        مرکز عرضه کالاهای اساسی و طرح کالابرگ الکترونیکی
+    </p>
 
-        <div class="inquiry-section">
-            <h2>استعلام سریع کالا برگ</h2>
-            <p>
-                برای استعلام سریع و اطمینان از اعتبار کالا برگ خود، کافی است به پیامرسان <strong>بالا</strong> (بله) مراجعه کنید.
-            </p>
-            <a href="https://web.bale.ai/services?uid=1834682924"bale-link">رفتن به بخش استعلام کالا برگ در بله</a>
-            <p>
-                نام کاربری کالا برگ در سامانه پیامرسان:
-                <span class="username">@6369</span>
-            </p>
-        </div>
+    <div class="line"></div>
+
+    <h2 class="title">استعلام کالابرگ</h2>
+
+    <p class="desc">
+        برای مشاهده موجودی اعتبار کالابرگ و خدمات مربوطه،
+        روی دکمه زیر کلیک کنید.
+    </p>
+
+    <a class="btn" href="https://ble.ir/6369">
+        استعلام کالابرگ
+    </a>
+
+    <div class="footer">
+        © فروشگاه میر جلیل هاشمی
     </div>
 
-    <footer>
-        <p>&copy; 2026 تمامی حقوق محفوظ است. طراحی شده توسط <a href="#">تیم توسعه فروشگاه میر جلیل هاشمی </a></p>
-    </footer>
+</div>
 
 </body>
 </html>
