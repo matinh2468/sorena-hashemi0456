@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=0.6">
-
 <title>فروشگاه میر جلیل هاشمی</title>
 
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
@@ -23,14 +21,11 @@ background:#f5f5f5;
 color:#333;
 }
 
-/* هدر */
-
 header{
 background:linear-gradient(135deg,#d50000,#ff3d00);
 padding:25px;
-color:white;
+color:#fff;
 text-align:center;
-box-shadow:0 5px 20px rgba(0,0,0,.2);
 }
 
 .logo{
@@ -40,10 +35,7 @@ font-weight:bold;
 
 .slogan{
 margin-top:10px;
-font-size:16px;
 }
-
-/* منو */
 
 nav{
 background:#fff;
@@ -52,10 +44,10 @@ justify-content:center;
 flex-wrap:wrap;
 gap:15px;
 padding:15px;
-box-shadow:0 3px 10px rgba(0,0,0,.08);
 position:sticky;
 top:0;
-z-index:100;
+z-index:999;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
 }
 
 nav a{
@@ -68,11 +60,23 @@ transition:.3s;
 }
 
 nav a:hover{
-background:#e53935;
+background:#d50000;
 color:#fff;
 }
 
-/* اسلایدر */
+#soon-badge{
+background:#d50000;
+color:#fff;
+font-size:11px;
+padding:3px 8px;
+border-radius:20px;
+margin-right:5px;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.4;}
+}
 
 .slider{
 width:95%;
@@ -85,7 +89,8 @@ position:relative;
 box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
-.slide{
+.slide,
+.slide2{
 position:absolute;
 width:100%;
 height:100%;
@@ -93,35 +98,38 @@ opacity:0;
 transition:1s;
 }
 
-.slide.active{
+.slide.active,
+.slide2.active2{
 opacity:1;
 }
 
-.slide img{
+.slide img,
+.slide2 img{
 width:100%;
 height:100%;
 object-fit:contain;
 background:#fff;
 }
 
-/* شگفت انگیز */
-
 .amazing{
 background:#d50000;
-color:white;
-margin:25px auto;
+color:#fff;
 width:95%;
+margin:25px auto;
 padding:25px;
 border-radius:20px;
 text-align:center;
-box-shadow:0 10px 25px rgba(213,0,0,.3);
 }
 
-.amazing h2{
-margin-bottom:10px;
+.banner{
+width:95%;
+margin:30px auto;
+padding:35px;
+border-radius:20px;
+text-align:center;
+background:linear-gradient(135deg,#43a047,#2e7d32);
+color:#fff;
 }
-
-/* دسته بندی */
 
 .section-title{
 text-align:center;
@@ -129,52 +137,6 @@ margin:30px 0;
 font-size:30px;
 color:#d50000;
 }
-
-.categories{
-width:95%;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-}
-
-.cat{
-background:white;
-padding:25px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.cat:hover{
-transform:translateY(-8px);
-}
-
-.cat img{
-width:90px;
-height:90px;
-object-fit:contain;
-margin-bottom:10px;
-}
-
-/* بنر */
-
-.banner{
-width:95%;
-margin:35px auto;
-background:linear-gradient(135deg,#43a047,#2e7d32);
-color:white;
-padding:35px;
-border-radius:20px;
-text-align:center;
-}
-
-.banner h2{
-margin-bottom:15px;
-}
-
-/* گالری */
 
 .gallery{
 width:95%;
@@ -188,25 +150,20 @@ gap:20px;
 width:100%;
 height:220px;
 object-fit:contain;
-background:white;
-border-radius:15px;
+background:#fff;
 padding:10px;
+border-radius:15px;
 box-shadow:0 4px 15px rgba(0,0,0,.1);
 }
-
-/* معرفی */
 
 .about{
 width:95%;
 margin:35px auto;
-background:white;
+background:#fff;
 padding:30px;
 border-radius:20px;
 line-height:2;
-box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
-
-/* روبیکا */
 
 .rubika{
 width:95%;
@@ -215,27 +172,25 @@ background:#1565c0;
 padding:25px;
 border-radius:20px;
 text-align:center;
-color:white;
+color:#fff;
 }
 
 .rubika a{
 display:inline-block;
 margin-top:15px;
 padding:12px 25px;
-background:white;
+background:#fff;
 color:#1565c0;
 text-decoration:none;
-font-weight:bold;
 border-radius:10px;
+font-weight:bold;
 }
-
-/* فوتر */
 
 footer{
 background:#1f1f1f;
-color:white;
-margin-top:40px;
+color:#fff;
 padding:50px 20px;
+margin-top:40px;
 }
 
 .footer-grid{
@@ -247,37 +202,20 @@ margin:auto;
 }
 
 .footer-box h3{
-margin-bottom:15px;
 color:#ff5252;
-}
-
-.footer-box p{
-line-height:2;
+margin-bottom:15px;
 }
 
 .copy{
 text-align:center;
-margin-top:35px;
-padding-top:20px;
+margin-top:25px;
 border-top:1px solid #444;
+padding-top:20px;
 }
-
-/* موبایل */
 
 @media(max-width:768px){
-
-.logo{
-font-size:25px;
-}
-
-.slider{
-height:250px;
-}
-
-.section-title{
-font-size:24px;
-}
-
+.logo{font-size:25px;}
+.slider{height:240px;}
 }
 
 </style>
@@ -292,7 +230,7 @@ font-size:24px;
 </div>
 
 <div class="slogan">
-عمده فروشی و خرده فروشی مواد غذایی با بهترین تخفیف‌ها
+عمده فروشی و خرده فروشی مواد غذایی با بهترین تخفیف ها
 </div>
 
 </header>
@@ -300,13 +238,21 @@ font-size:24px;
 <nav>
 
 <a href="#">خانه</a>
-<a href="shegeft angiz.HTML">تخفیف‌ها</a>
-<a href="#">دسته‌بندی‌ها</a>
+<a href="shegeft angiz.HTML">تخفیف ها</a>
+<a href="#">دسته بندی ها</a>
 <a href="KALA BARG.HTML">کالابرگ</a>
 <a href="#">گالری</a>
+
+<a href="#">
+🥜 آجیل عید
+<span id="soon-badge">به زودی</span>
+</a>
+
 <a href="ARTEBAT BA MA.HTML">تماس با ما</a>
 
 </nav>
+
+<!-- اسلایدر اول -->
 
 <div class="slider">
 
@@ -316,11 +262,6 @@ font-size:24px;
 
 <div class="slide">
 <img src="hed kol.png">
-</div>
-
-
-<div class="slide">
-<img src="https://dkstatics-public.digikala.com/digikala-adservice-banners/89f82010567f65fab48e9f0d30c4c2642e15ce12_1778505790.gif?x-oss-process=image">
 </div>
 
 <div class="slide">
@@ -339,10 +280,10 @@ font-size:24px;
 
 <div class="amazing">
 
-<h2>🔥 خبر  فوری  خرید کالابرگ 🔥</h2>
+<h2>🔥 خبر فوری خرید کالابرگ 🔥</h2>
 
 <p>
-شروع دوره جدید خرید کالابرگ (15 روز خرداد )
+شروع دوره جدید خرید کالابرگ (15 روز خرداد)
 </p>
 
 </div>
@@ -354,7 +295,7 @@ font-size:24px;
 <h2>🛒 خرید با کالابرگ الکترونیکی</h2>
 
 <p>
-مشتریان عزیز می‌توانند با استفاده از کالابرگ الکترونیکی کالاهای مورد نیاز خود را از فروشگاه میر جلیل هاشمی تهیه کنند.
+مشتریان عزیز می توانند با استفاده از کالابرگ الکترونیکی کالاهای مورد نیاز خود را از فروشگاه تهیه کنند.
 </p>
 
 </div>
@@ -366,23 +307,45 @@ font-size:24px;
 <div class="gallery">
 
 <img src="galeri 1.jpg">
-
 <img src="galeri 2.jpg">
-
 <img src="galeri 3.jpg">
-
 <img src="galeri 4.jpg">
 
 </div>
+
+<!-- اسلایدر دوم -->
+
+<div class="slider">
+
+<div class="slide2 active2">
+<img src="014.png">
+</div>
+
+<div class="slide2">
+<img src="hed kol.png">
+</div>
+
+<div class="slide2">
+<img src="pegah.webp">
+</div>
+
+<div class="slide2">
+<img src="kand.jpg">
+</div>
+
+<div class="slide2">
+<img src="kand2.jpg">
+</div>
+
+</div>
+
 
 <div class="about">
 
 <h2>درباره فروشگاه</h2>
 
 <p>
-
-فروشگاه میر جلیل هاشمی با سال‌ها سابقه در زمینه فروش عمده و خرده مواد غذایی، برنج، حبوبات، آجیل و تنقلات فعالیت می‌کند. هدف ما ارائه کالاهای با کیفیت، قیمت مناسب و تخفیف‌های واقعی برای مشتریان عزیز است.
-
+فروشگاه میر جلیل هاشمی با سال ها سابقه در زمینه فروش عمده و خرده مواد غذایی، برنج، حبوبات، آجیل و تنقلات فعالیت می کند و همواره تلاش کرده است بهترین قیمت و کیفیت را به مشتریان ارائه دهد.
 </p>
 
 </div>
@@ -392,7 +355,7 @@ font-size:24px;
 <h2>کانال روبیکا فروشگاه</h2>
 
 <p>
-عمده فروشی و خرده فروشی | اطلاع از جدیدترین تخفیف‌ها
+اطلاع از جدیدترین تخفیف ها و محصولات
 </p>
 
 <a href="https://rubika.ir/hashemistorsorena">
@@ -407,9 +370,7 @@ font-size:24px;
 
 <div class="footer-box">
 <h3>درباره ما</h3>
-<p>
-مرجع تخفیف‌های روز فروشگاه میر جلیل هاشمی
-</p>
+<p>مرجع تخفیف های فروشگاه میر جلیل هاشمی</p>
 </div>
 
 <div class="footer-box">
@@ -425,8 +386,7 @@ font-size:24px;
 <div class="footer-box">
 <h3>ساعات کاری</h3>
 <p>
-همه روزه<br>
-۸ صبح تا ۱۱ شب
+همه روزه 8 صبح تا 11 شب
 </p>
 </div>
 
@@ -442,9 +402,7 @@ font-size:24px;
 </div>
 
 <div class="copy">
-
-© تمامی حقوق متعلق به فروشگاه میر جلیل هاشمی می‌باشد.
-
+© تمامی حقوق متعلق به فروشگاه میر جلیل هاشمی می باشد.
 </div>
 
 </footer>
@@ -452,16 +410,24 @@ font-size:24px;
 <script>
 
 let slides=document.querySelectorAll('.slide');
-
 let current=0;
 
 setInterval(()=>{
 
 slides[current].classList.remove('active');
-
 current=(current+1)%slides.length;
-
 slides[current].classList.add('active');
+
+},3000);
+
+let slides2=document.querySelectorAll('.slide2');
+let current2=0;
+
+setInterval(()=>{
+
+slides2[current2].classList.remove('active2');
+current2=(current2+1)%slides2.length;
+slides2[current2].classList.add('active2');
 
 },3000);
 
